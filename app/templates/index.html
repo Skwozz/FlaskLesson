@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2> Book: </h2>
+
+    {% for n in name_book %}
+        <hr>
+        <ul>
+        <li>Название: "{{ n.name }}"</li>
+        <li>
+            <a href="{{url_for('genre',genre_id= n.genre_id)}}"> Жанр:{{ n.genre.name }}</a>
+        </li>
+        <li>{% if n.is_read==False %}
+            <form action="" method="post">
+                <input type="checkbox" class="custom-checkbox" name="Прочитано" value="yes"> Прочитано
+                {{ form.hidden_tag() }}
+                {{ form.submit(class = "btn btn-lg btn-block btn-primary") }}
+
+        </form>
+
+        {% else %}
+                Прочитано
+        </li>
+        {% endif %}
+
+
+
+
+
+        </ul>
+    {% endfor %}
+{% endblock %}

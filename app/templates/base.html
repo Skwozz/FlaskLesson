@@ -1,0 +1,18 @@
+<html>
+    <head style = "background-color: #66CDAA">
+      {% if title %}
+      <title>{{ title }} - BookBlog</title>
+      {% else %}
+      <title>Welcome to BookBlog</title>
+      {% endif %}
+    </head>
+    <body style = "background-color: #ADD8E6">
+
+            <div>Microblog: <a href="{{url_for('index')}}">Книги</a></div>
+            <div>Microblog: <a href="{{url_for('add_book')}}">Добавить книгу</a></div>
+
+            <hr>
+            {% block content %}{% endblock %}
+
+    </body>
+</html>
